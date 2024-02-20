@@ -80,21 +80,21 @@ function fact(n){
         const secondHalf = str.slice(str.length / 2);
 
        
-        const reversedSecondHalf = secondHalf.split('').reverse().join('');
+        const revSecHalf = secondHalf.split('').reverse().join('');
 
         
-        return firstHalf === reversedSecondHalf;
+        return firstHalf === revSecHalf;
     } else {
         
-        const middleIndex = Math.floor(str.length / 2);
-        const firstHalf = str.slice(0, middleIndex);
-        const secondHalf = str.slice(middleIndex + 1);
+        const midIndex = Math.floor(str.length / 2);
+        const firstHalf = str.slice(0, midIndex);
+        const secondHalf = str.slice(midIndex + 1);
 
         
-        const reversedSecondHalf = secondHalf.split('').reverse().join('');
+        const revSecHalf = secondHalf.split('').reverse().join('');
 
         
-        return firstHalf === reversedSecondHalf;
+        return firstHalf === revSecHalf;
     }
 }
   
