@@ -6,31 +6,32 @@ var json = ('json')
 
 application.get('/',function(req,res){
     console.log("start server")
-    res.send("server started")
+    res.send("server started.")
 })
 
 application.get('/fact/:num',function(req,res){
     let x=fact(req.params.num)
-    res.json("result is "+ x)
+    res.json("result is: "+ x)
 })
 
 application.get('/multiply/:num',function(req,res){ // dont forget to add params while testing
     let x=multiply(req.params.num)
-    res.json("result is "+ x)
+    res.json("result is: "+ x)
 })
 
 application.get('/fib/:num',function(req,res){
     let x=fib(req.params.num)
-    res.json("result is "+ x)
+    res.json("result is: "+ x)
 })
 
 application.get('/sumSeq/:num',function(req,res){
     let x=sumSeq(req.params.num)
-    res.json("result is "+ x)
+    res.json("result is: "+ x)
 })
 
-application.get('/stringMirror/:yazeed',function(req,res){
-
+application.get('/stringMirror/:string',function(req,res){
+    let stringIn = stringMirror(req.params.string)
+    res.json("the string is mirrored: "+ stringIn)
 })
 
 var server = application.listen(7001, function(){
@@ -72,6 +73,28 @@ function fact(n){
     return s
  }
 
- function stringMirror(){
-    
- }
+ function stringMirror(str) {
+    if (str.length % 2 === 0) {
+        
+        const firstHalf = str.slice(0, str.length / 2);
+        const secondHalf = str.slice(str.length / 2);
+
+       
+        const reversedSecondHalf = secondHalf.split('').reverse().join('');
+
+        
+        return firstHalf === reversedSecondHalf;
+    } else {
+        
+        const middleIndex = Math.floor(str.length / 2);
+        const firstHalf = str.slice(0, middleIndex);
+        const secondHalf = str.slice(middleIndex + 1);
+
+        
+        const reversedSecondHalf = secondHalf.split('').reverse().join('');
+
+        
+        return firstHalf === reversedSecondHalf;
+    }
+}
+  
